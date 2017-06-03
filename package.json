@@ -1,6 +1,6 @@
 {
   "name": "xlsx-to-json-lc",
-  "version": "0.2.5",
+  "version": "0.4.1",
   "description": "Convert xlsx to json with optional option to lowerCase the excel headers (Credits DataGarage Fork)",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/DataGarage/node-xml-json",
   "dependencies": {
-    "xlsx": "0.7.6-g",
+    "xlsx": "0.10.4",
     "csv": "~0.3.6"
   },
   "devDependencies": {
