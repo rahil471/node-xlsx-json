@@ -56,7 +56,7 @@ CV.prototype.cvjson = function(csv, config, callback) {
   var header = []
 
   var headerRow = config.headerRow || 0;
-  var bodyStart = config.bodyRow || config.headerRow + 1;
+  var bodyStart = config.bodyStart || config.headerRow + 1;
 
   cvcsv()
     .from.string(csv)
