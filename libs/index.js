@@ -65,7 +65,7 @@ CV.prototype.cvjson = function(csv, config, callback) {
       return row;
     })
     .on('record', function(row, index){
-
+      console.log(row);
       if (index === config.headerRow) {
         header = row;
       } else if (index >= bodyStart) {
@@ -73,7 +73,7 @@ CV.prototype.cvjson = function(csv, config, callback) {
         header.forEach(function(column, index) {
           var key = config.lowerCaseHeaders ? column.trim().toLowerCase() : column.trim();
           obj[key] = row[index].trim();
-        })
+        });
         record.push(obj);
       }
     })
