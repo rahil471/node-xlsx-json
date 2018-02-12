@@ -55,6 +55,9 @@ CV.prototype.cvjson = function(csv, config, callback) {
   var record = []
   var header = []
 
+  var headerRow = config.headerRow || 0;
+  var bodyStart = config.bodyRow || config.headerRow + 1;
+
   cvcsv()
     .from.string(csv)
     .transform( function(row){
@@ -63,9 +66,9 @@ CV.prototype.cvjson = function(csv, config, callback) {
     })
     .on('record', function(row, index){
 
-      if (index === (config.headerRow || 0)) {
+      if (index === config.headerRow) {
         header = row;
-      } else if (index >= (config.bodyStart || (config.headerRow ? config.headerRow + 1 : 1))) {
+      } else if (index >= bodyStart) {
         var obj = {};
         header.forEach(function(column, index) {
           var key = config.lowerCaseHeaders ? column.trim().toLowerCase() : column.trim();
