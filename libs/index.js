@@ -71,7 +71,7 @@ CV.prototype.cvjson = function(csv, config, callback) {
         var obj = {};
         header.forEach(function(column, index) {
           var key = config.lowerCaseHeaders ? column.trim().toLowerCase() : column.trim();
-          obj[key] = row[index].trim();
+          if (!obj[key]) obj[key] = row[index].trim();
         });
         record.push(obj);
       }
@@ -92,3 +92,4 @@ CV.prototype.cvjson = function(csv, config, callback) {
       console.error(error.message);
     });
 }
+
